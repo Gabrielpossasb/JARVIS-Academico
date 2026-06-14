@@ -1,0 +1,44 @@
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "titulo": "Estudar KNN para prova",
+      "materia": "Inteligência Artificial",
+      "prioridade": "alta",
+      "concluida": false,
+      "data_criacao": "2026-05-20"
+    },
+    {
+      "id": 2,
+      "titulo": "Fazer lista de Estruturas de Dados",
+      "materia": "Estruturas de Dados",
+      "prioridade": "média",
+      "concluida": false,
+      "data_criacao": "2026-05-20"
+    },
+    {
+      "id": 3,
+      "titulo": "Revisar árvores de decisão",
+      "materia": "Inteligência Artificial",
+      "prioridade": "alta",
+      "concluida": true,
+      "data_criacao": "2026-05-20"
+    },
+    {
+      "id": 4,
+      "titulo": "estudar redes neurais",
+      "materia": "IA",
+      "prioridade": "alta",
+      "concluida": false,
+      "data_criacao": "2026-05-20"
+    },
+    {
+      "id": 5,
+      "titulo": "Estudar Gradiente em IA",
+      "materia": "Inteligência Artificial",
+      "prioridade": "média",
+      "concluida": false,
+      "data_criacao": "2026-05-24"
+    }
+  ]
+}

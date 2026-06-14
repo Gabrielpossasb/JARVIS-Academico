@@ -1,0 +1,131 @@
+[
+  {
+    "id": 1,
+    "categoria": "RAG",
+    "pergunta": "Explique como funciona o algoritmo KNN e como ele classifica novos exemplos",
+    "documentos_recuperados": [
+      "aula-KNN.pdf",
+      "IHC___Aula_03.pdf",
+      "aula-arvoresDecisao.pdf"
+    ],
+    "resposta": "O Algoritmo K-Nearest Neighbors (KNN) é um método simples e direto utilizado tanto para classificação quanto para regressão. Vou explicar como ele funciona para classificar novos exemplos.\n\n### Como Funciona o Algoritmo KNN\n\n1. **Treinamento**: O processo de treinamento do KNN consiste em armazenar todos os exemplos de treinamento em um conjunto chamado de conjunto de treinamento (CT). Este conjunto contém todas as amostras utilizadas para treinar o modelo.\n\n2. **Distância entre Exemplos**: Para classificar um novo exemplo, o KNN calcula a distância entre este novo exemplo e cada exemplo presente no conjunto de treinamento. Existem várias métricas de distância que podem ser usadas, sendo a mais comum a distância euclidiana.\n\n3. **Seleção dos K Mais Próximos Vizinhos**: Após calcular as distâncias, o KNN identifica os `k` exemplos mais próximos ao novo exemplo. O valor de `k` é um parâmetro do algoritmo que deve ser definido pelo usuário antes da execução. Escolher um bom valor para `k` é crucial para o desempenho do algoritmo.\n\n4. **Determinação da Classe**: Finalmente, a classe do novo exemplo é determinada pela classe que ocorre com maior frequência entre os `k` vizinhos mais próximos. Em caso de empate, a escolha da classe pode variar dependendo da implementação específica.\n\n### Exemplo Simples de Classificação\n\nSuponha que temos um conjunto de treinamento com exemplos de duas classes diferentes, digamos \"Classe A\" e \"Classe B\". Se quisermos classificar um novo exemplo usando o KNN com `k=3`, faremos o seguinte:\n\n1. Calcularemos a distância entre o novo exemplo e todos os exemplos de treinamento.\n2. Identificaremos os três exemplos de treinamento mais próximos ao novo exemplo.\n3. Verificaremos as classes desses três exemplos mais próximos.\n4. A nova amostra será classificada como pertencendo à classe que aparece com maior frequência entre esses três exemplos.\n\nPor exemplo, se dois dos três exemplos mais próximos pertencerem à \"Classe A\" e um pertencer à \"Classe B\", então o novo exemplo será classificado como \"Classe A\".\n\n### Considerações sobre o Parâmetro `k`\n\n- **Valores Baixos de `k`**: Valores menores de `k` tornam o modelo mais sensível aos ruídos e outliers no conjunto de treinamento. Isso pode levar a classificações menos precisas.\n\n- **Valores Altos de `k`**: Valores maiores de `k` podem suavizar o impacto de ruídos e outliers, mas também podem fazer o modelo mais lento e menos capaz de capturar detalhes importantes.\n\nEscolher o valor certo de `k` é uma parte importante do ajuste do modelo KNN.",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:26:54.531084"
+  },
+  {
+    "id": 2,
+    "categoria": "RAG",
+    "pergunta": "Quais são as vantagens e desvantagens das árvores de decisão?",
+    "documentos_recuperados": [
+      "Aula 05 - Árvores Binárias de Busca.pdf",
+      "IHC___Aula_02___Fatores_Humanos.pdf",
+      "Aula 04 - Árvores Binárias.pdf"
+    ],
+    "resposta": "Com base nas informações fornecidas e considerando as características gerais das árvores de decisão, podemos listar as vantagens e desvantagens deste tipo de algoritmo de aprendizado de máquina.\n\n### Vantagens das Árvores de Decisão\n\n1. **Interpretabilidade**: As árvores de decisão são relativamente fáceis de interpretar e entender, pois elas representam regras claras e intuitivas.\n\n2. **Eficiência Computacional**: Árvores de decisão são eficientes computacionalmente, especialmente quando comparadas a outros métodos de aprendizado de máquina.\n\n3. **Flexibilidade**: Podem ser usadas para problemas de classificação e regressão.\n\n4. **Capacidade de Lidar com Dados Categóricos e Numéricos**: As árvores de decisão podem lidar tanto com dados numéricos quanto categóricos.\n\n5. **Não Requer Pré-processamento**: Não é necessário normalizar ou padronizar os dados antes de treinar uma árvore de decisão.\n\n### Desvantagens das Árvores de Decisão\n\n1. **Vulnerabilidade a Ruído e Outliers**: Árvores de decisão podem ser muito sensíveis a ruído e outliers nos dados de treinamento.\n\n2. **Sobreamostragem (Overfitting)**: Árvores de decisão podem facilmente sobreamostrar os dados de treinamento, especialmente quando há muitas variáveis preditoras.\n\n3. **Instabilidade**: Pequenas mudanças nos dados de treinamento podem resultar em grandes mudanças na estrutura da árvore de decisão.\n\n4. **Ineficácia com Dados Multidimensionais**: Para conjuntos de dados multidimensionais, a construção de uma árvore de decisão pode se tornar complexa e ineficiente.\n\n5. **Limitações com Variáveis Contínuas**: Embora possam lidar com dados numéricos, a divisão de dados contínuos em intervalos discretos pode não ser ideal para alguns casos.\n\nÉ importante notar que as informações fornecidas parecem estar relacionadas a temas diferentes, como árvores binárias de busca, princípios humanos-fatoriais e linguagens de marcação, e não diretamente às árvores de decisão. No entanto, as vantagens e desvantagens mencionadas acima são comuns para os algoritmos de árvores de decisão.",
+    "classificacao": "parcialmente_correta",
+    "observacao": " Falha 1 — RAG recuperou material insuficiente sobre árvores de decisão. O LLM complementou com conhecimento geral, mas não usou os PDFs do dataset.",
+    "timestamp": "2026-06-10T19:29:06.890202"
+  },
+  {
+    "id": 3,
+    "categoria": "RAG",
+    "pergunta": "O que é uma tabela hash e como são tratadas as colisões?",
+    "documentos_recuperados": [
+      "Aula 02 - Tabelas de Dispersão.pdf",
+      "Aula 04 - Árvores Binárias.pdf",
+      "IHC___Aula_02___Fatores_Humanos.pdf"
+    ],
+    "resposta": "Uma tabela hash é uma estrutura de dados que permite a rápida localização de elementos através de uma função hash. Essa função transforma a chave de cada elemento em um índice para uma tabela de tamanho fixo, permitindo operações rápidas de busca, inserção e remoção.\n\n### Tratamento de Colisões\n\nColisões acontecem quando duas ou mais chaves diferentes geram o mesmo índice na tabela hash. Para resolver essa situação, existem diversas técnicas, incluindo a utilização de listas encadeadas. Veja abaixo as principais maneiras de lidar com colisões:\n\n#### Listas Encadeadas (Chaining)\n\nNessa abordagem, cada posição na tabela hash mantém uma lista encadeada de elementos que têm o mesmo índice. Quando ocorre uma colisão, o novo elemento é adicionado à lista correspondente. Assim, durante a busca, se houver uma colisão, a tabela hash procurará o elemento na lista correspondente.\n\n#### Abordagem de Endereçamento Linear Aberto (Open Addressing)\n\nEssa técnica envolve a procura de outro índice na tabela hash caso ocorra uma colisão. Existem vários métodos de endereçamento linear aberto, como:\n\n- **Linear Probing**: Se houver uma colisão, o próximo índice é verificado, e assim por diante, até encontrar um espaço vazio.\n- **Quadratic Probing**: Semelhante ao Linear Probing, mas utiliza uma sequência quadrática para encontrar o próximo índice.\n- **Double Hashing**: Usa duas funções hash diferentes para calcular o próximo índice a ser verificado.\n\n### Função de Dispersão\n\nA função de dispersão (hash function) é responsável por mapear as chaves de entrada para índices válidos dentro da tabela hash. Uma boa função de dispersão visa minimizar as colisões, distribuindo uniformemente as chaves pela tabela.\n\n### Resumo\n\nAs tabelas hash são uma poderosa ferramenta para realizar operações de busca, inserção e remoção de forma eficiente. A chave para o sucesso da tabela hash está na escolha de uma boa função de dispersão e no tratamento eficaz de colisões. Utilizando listas encadeadas ou abordagens de endereçamento linear aberto, é possível gerenciar efetivamente as colisões que ocorrem naturalmente na tabela hash.\n\nPara evitar colisões excessivas, é importante escolher um tamanho adequado para a tabela hash, geralmente recomendado que seja pelo menos duas vezes maior que o número esperado de entradas. Além disso, a escolha da função hash é fundamental para garantir uma distribuição equitativa das chaves na tabela.",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:31:23.028332"
+  },
+  {
+    "id": 4,
+    "categoria": "Agenda",
+    "pergunta": "O que tenho hoje?",
+    "documentos_recuperados": [],
+    "resposta": "Hoje, 10 de junho de 2026, você tem três aulas:\n\n1. **Estruturas de Dados - Teoria**\n   - Horário: 13:15\n   - Local: Bloco 15 - Sala de Aula 13\n   - Professor: Diego Padilha Rubert\n\n2. **Análise e Projeto de Software Orientado a Objetos - Teoria**\n   - Horário: 18:30\n   - Local: Bloco 15 - Sala de Aula 11\n   - Professor: Leonardo Victorio\n\n3. **Interação Humano-computador - Teoria**\n   - Horário: 20:40\n   - Local: Bloco 15 - Sala de Aula 03\n   - Professor: Leonardo Victorio\n\nCertifique-se de estar no local correto e preparado para cada aula. Boa sorte!",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:33:25.503497"
+  },
+  {
+    "id": 5,
+    "categoria": "Agenda",
+    "pergunta": "Tenho alguma prova nos próximos 30 dias?",
+    "documentos_recuperados": [],
+    "resposta": "Baseado nas informações disponíveis, você não tem nenhuma prova programada nos próximos 30 dias. Continue se dedicando aos seus estudos e aproveite esse tempo sem provas para revisar os conteúdos e se preparar melhor para as próximas avaliações.",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:36:11.743717"
+  },
+  {
+    "id": 6,
+    "categoria": "Tarefas",
+    "pergunta": "Quais são minhas tarefas pendentes?",
+    "documentos_recuperados": [],
+    "resposta": "Baseado nas informações fornecidas, aqui estão suas tarefas pendentes:\n\n1. **Estudar KNN para prova**\n   - Matéria: Inteligência Artificial\n   - Prioridade: alta\n\n2. **Fazer lista de Estruturas de Dados**\n   - Matéria: Estruturas de Dados\n   - Prioridade: média\n\n3. **Estudar redes neurais**\n   - Matéria: Inteligência Artificial\n   - Prioridade: alta\n\n4. **Estudar Gradiente em IA**\n   - Matéria: Inteligência Artificial\n   - Prioridade: média\n\nLembre-se de priorizar as tarefas de acordo com a importância atribuída a cada uma delas. Boa sorte!",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:37:44.698917"
+  },
+  {
+    "id": 7,
+    "categoria": "Planejamento",
+    "pergunta": "Monte um plano de estudos para a prova de Inteligência Artificial",
+    "documentos_recuperados": [
+      "aula-arvoresDecisao.pdf",
+      "aula-KNN.pdf",
+      "IHC___Aula_02___Fatores_Humanos.pdf"
+    ],
+    "resposta": "Com base nas informações fornecidas, aqui está um plano de estudo para a prova de Inteligência Artificial:\n\n### Plano de Estudos\n\n#### Dia 1 (2026-06-10)\n- **Objetivo**: Revise os conceitos básicos de KNN e redes neurais.\n- **Atividades**:\n  - Estude os slides da aula de KNN (`aula-KNN.pdf`).\n  - Faça uma breve revisão sobre redes neurais.\n  - Prepare-se para as aulas de teoria e prática.\n\n#### Dia 2 (2026-06-11)\n- **Objetivo**: Aprofundar o entendimento sobre KNN e redes neurais.\n- **Atividades**:\n  - Leia os slides de KNN novamente, focando em exemplos práticos.\n  - Estude os slides de redes neurais (`aula-redesNeurais.pdf`).\n  - Realize os exercícios de redes neurais disponíveis.\n\n#### Dia 3 (2026-06-12)\n- **Objetivo**: Continuar aprofundando o estudo de redes neurais e iniciar o estudo sobre gradiente.\n- **Atividades**:\n  - Termine os exercícios de redes neurais.\n  - Comece a estudar sobre gradiente em IA (`aula-gradienteIA.pdf`).\n\n#### Dia 4 (2026-06-13)\n- **Objetivo**: Consolidar o conhecimento sobre redes neurais e gradiente.\n- **Atividades**:\n  - Revise os conceitos de redes neurais e gradiente.\n  - Resolva questões práticas sobre redes neurais e gradiente.\n\n#### Dia 5 (2026-06-14)\n- **Objetivo**: Estudar sobre KNN e redes neurais para a prova.\n- **Atividades**:\n  - Revise os conceitos de KNN e redes neurais.\n  - Faça uma breve revisão sobre gradiente.\n\n#### Dia 6 (2026-06-15)\n- **Objetivo**: Participar das aulas de IA e consolidar o aprendizado.\n- **Atividades**:\n  - Assistir às aulas de IA (Teoria e Prática).\n  - Iniciar a resolução de exercícios práticos após as aulas.\n\n#### Dia 7 (2026-06-16)\n- **Objetivo**: Preparação final para a prova.\n- **Atividades**:\n  - Revise todos os conceitos estudados.\n  - Faça um simulado de prova para avaliar o seu conhecimento.\n\n### Pontos Importantes\n\n- **Prioridade Alta**: Estudar KNN e redes neurais.\n- **Prioridade Média**: Fazer a lista de Estruturas de Dados e estudar gradiente em IA.\n\n### Recomendações Adicionais\n\n- **Organização**: Mantenha um caderno ou documento digital organizado com anotações e resumos.\n- **Prática**: Realize exercícios práticos regularmente para consolidar o aprendizado.\n- **Revisão**: Revise os conceitos estudados periodicamente para manter o conhecimento fresco.\n\nBoa sorte na sua preparação para a prova de Inteligência Artificial!",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:39:16.391700"
+  },
+  {
+    "id": 8,
+    "categoria": "Planejamento",
+    "pergunta": "O que devo priorizar hoje nos meus estudos?",
+    "documentos_recuperados": [
+      "IHC___Aula_03.pdf",
+      "IHC___Aula_02___Fatores_Humanos.pdf",
+      "Aula 05 - Árvores Binárias de Busca.pdf"
+    ],
+    "resposta": "Hoje você tem duas aulas: Estruturas de Dados (prática) e Inteligência Artificial (teoria e prática). Dada sua agenda, a prioridade principal deve ser se preparar para a aula de Estruturas de Dados, que começa às 13:15.\n\nDepois disso, você deve concentrar-se na aula de Inteligência Artificial. Dado que você tem tarefas pendentes relacionadas à Inteligência Artificial (KNN e redes neurais), você deve dedicar algum tempo antes das aulas para revisar esses temas.\n\nLembre-se também de que você precisa entregar a lista de Estruturas de Dados, então reserve algum tempo livre para concluir essa tarefa.",
+    "classificacao": "correta",
+    "observacao": "Corrigido: adicionada instrução específica em gerar_resposta_final (_is_prioridade) para responder de forma direta e ordenada, sem listar toda a agenda. Re-testado com sucesso.",
+    "timestamp": "2026-06-14T15:51:13.629412"
+  },
+  {
+    "id": 9,
+    "categoria": "Exercicios",
+    "pergunta": "Gere 3 exercícios sobre o algoritmo KNN com gabarito comentado",
+    "documentos_recuperados": [
+      "aula-KNN.pdf",
+      "lista1.pdf",
+      "Aula 04 - Árvores Binárias.pdf",
+      "Introducao_a_Sistemas_Digitais.pdf"
+    ],
+    "resposta": "Claro, vamos criar três exercícios sobre o algoritmo KNN (K-Nearest Neighbors) com seus respectivos gabaritos comentados.\n\n### EXERCÍCIOS SOBRE KNN\n\n#### EXERCÍCIO 1 — Dissertativo\n**Questão:** Explique como funciona o algoritmo KNN, incluindo os passos para classificar um novo exemplo.\n\n**Gabarito Comentado**\n1. **Resposta:** O algoritmo KNN (K-Nearest Neighbors) é um método de aprendizado de máquina utilizado para classificação e regressão. Ele funciona da seguinte forma:\n\n   - **Passo 1: Treinamento**: O algoritmo armazena todos os exemplos de treinamento em um conjunto de dados.\n   \n   - **Passo 2: Distância entre Exemplos**: Para classificar um novo exemplo, o KNN calcula a distância entre este novo exemplo e cada exemplo presente no conjunto de treinamento. Geralmente, usa-se a distância euclidiana, mas outras métricas podem ser aplicadas.\n   \n   - **Passo 3: Seleção dos K Mais Próximos Vizinhos**: O algoritmo identifica os `k` exemplos mais próximos ao novo exemplo, onde `k` é um parâmetro definido pelo usuário.\n   \n   - **Passo 4: Determinação da Classe**: A classe do novo exemplo é determinada pela classe que ocorre com maior frequência entre os `k` vizinhos mais próximos. Em caso de empate, a escolha da classe pode variar dependendo da implementação específica.\n\n   **Exemplo Simplificado**: Suponha que temos um conjunto de treinamento com exemplos de duas classes diferentes, digamos \"Classe A\" e \"Classe B\". Se quisermos classificar um novo exemplo usando o KNN com `k=3`, faremos o seguinte:\n\n   - Calcularemos a distância entre o novo exemplo e todos os exemplos de treinamento.\n   - Identificaremos os três exemplos de treinamento mais próximos ao novo exemplo.\n   - Verificaremos as classes desses três exemplos mais próximos.\n   - A nova amostra será classificada como pertencendo à classe que aparece com maior frequência entre esses três exemplos.\n\n#### EXERCÍCIO 2 — Múltipla Escolha\n**Questão:** Considere o seguinte conjunto de dados de treinamento para um problema de classificação binária:\n\n| x | y | Classe |\n|---|---|--------|\n| 1 | 1 | A      |\n| 2 | 2 | A      |\n| 3 | 3 | A      |\n| 4 | 4 | A      |\n| 5 | 5 | B      |\n| 6 | 6 | B      |\n| 7 | 7 | B      |\n| 8 | 8 | B      |\n\nSe quisermos classificar um novo ponto (x=4.5, y=4.5) utilizando o KNN com k=3, qual será a classe predita?\n\na) A\nb) B\nc) Ambas as classes A e B\nd) Não é possível determinar\n\n**Gabarito Comentado**\n2. **Resposta:** a) A\n   **Explicação:** Para determinar a classe do ponto (x=4.5, y=4.5) utilizando o KNN com k=3, primeiro calculamos a distância euclidiana entre o novo ponto e todos os pontos de treinamento. Os três pontos mais próximos serão (4,4), (3,3) e (5,5). As classes desses pontos são A, A e B, respectivamente. Como duas das três classes são A, o ponto (x=4.5, y=4.5) será classificado como A.\n\n#### EXERCÍCIO 3 — Verdadeiro ou Falso\n**Questão:** O valor de k no algoritmo KNN pode influenciar a sensibilidade do modelo a ruídos e outliers.\n\n**Gabarito Comentado**\n3. **Resposta:** Verdadeiro\n   **Explicação:** O valor de k no algoritmo KNN pode influenciar significativamente a sensibilidade do modelo a ruídos e outliers. Valores menores de k tornam o modelo mais sensível aos ruídos e outliers no conjunto de treinamento, enquanto valores maiores de k podem suavizar o impacto desses ruídos e outliers, mas também podem fazer o modelo mais lento e menos capaz de capturar detalhes importantes.\n\nEspero que esses exercícios e seus gabaritos comentados sejam úteis para a compreensão do algoritmo KNN!",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:45:04.371118"
+  },
+  {
+    "id": 10,
+    "categoria": "Active Recall",
+    "pergunta": "Iniciar active recall de Inteligência Artificial",
+    "documentos_recuperados": [
+      "aula-arvoresDecisao.pdf",
+      "aula-KNN.pdf",
+      "IHC___Aula_02___Fatores_Humanos.pdf"
+    ],
+    "resposta": "🧠 **Active Recall iniciado — Inteligência Artificial**\n\nQual é a importância da normalização em algoritmos como KNN?\n\n_(Responda com suas próprias palavras e envie quando terminar.)_",
+    "classificacao": "correta",
+    "observacao": "",
+    "timestamp": "2026-06-10T19:46:44.008266"
+  }
+]

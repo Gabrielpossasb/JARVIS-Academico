@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+.env
+
+# Cache do índice FAISS (gerado automaticamente ao rodar o servidor)
+data/cache/
+
+# Estado de sessão do active recall (gerado em tempo de execução)
+data/recall_state.json
+
+# Logs gerados em tempo de execução
+logs/
+
+# Arquivos temporários do Flask
+server_out.txt
+server_err.txt
