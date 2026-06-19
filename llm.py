@@ -1,13 +1,13 @@
 from openai import OpenAI
 
 client = OpenAI(
-    base_url='https://llm.liaufms.org/v1/gemma-3-12b-it',
-    api_key='Cxt2ftLF7d3mHS2JdiFqB-eSDAQeZvFATPXPs02lV9A'
+    base_url='https://llm.liaufms.org/v1/qwen2-5-14b-instruct-awq',
+    api_key='REIkURcI7rTTqsTwlJi8MrgnKFwOiqky7Ezh7hH-l-k'
 )
 
 def perguntar(mensagens: list) -> str:
     resp = client.chat.completions.create(
-        model='google/gemma-3-12b-it',
+        model='Qwen/Qwen2.5-14B-Instruct-AWQ',
         messages=mensagens,
     )
     return resp.choices[0].message.content
