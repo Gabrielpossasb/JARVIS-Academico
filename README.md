@@ -143,39 +143,7 @@ Você: Iniciar active recall de Inteligência Artificial
 
 ## 🗄️ Dataset
 
-Os documentos estão na pasta `data/docs/` e cobrem as seguintes disciplinas:
-
-| Arquivo | Conteúdo |
-|---|---|
-| `aula-KNN.pdf` | Algoritmo K-Nearest Neighbors |
-| `aula-arvoresDecisao.pdf` | Árvores de Decisão |
-| `Aula 02 - Tabelas de Dispersão.pdf` | Estruturas de Dados — Hash |
-| `Aula 04 - Árvores Binárias.pdf` | Estruturas de Dados — Árvores |
-| `Aula 05 - Árvores Binárias.pdf` | Estruturas de Dados — Árvores |
-| `Cópia de Tópico 3 - Linguagens.pdf` | Engenharia Web |
-| `IHC__Aula_02__Fatores_H.pdf` | Interação Humano-Computador |
-| `IHC__Aula_03.pdf` | Interação Humano-Computador |
-| `lista1.pdf` | Lista de exercícios — IA |
-| `Tópico 2 - Engenharia Web.pdf` | Engenharia Web |
-
-**Formatos suportados:** `.pdf`, `.docx` (Word) e `.txt` — basta colocar o arquivo na pasta `data/docs/`.
-
-**Origem:** Materiais fornecidos pelos professores das disciplinas do semestre.
-
-**Tipo de conteúdo:** Slides de aula, listas de exercícios e apostilas.
-
-**Limitações:** Alguns PDFs possuem problemas de encoding (caracteres especiais), pois foram gerados a partir de slides escaneados ou exportados sem configuração UTF-8.
-
-### Estratégia de chunking
-
-- Tamanho do chunk: **800 caracteres**
-- Overlap: **100 caracteres**
-- Biblioteca: `RecursiveCharacterTextSplitter` (LangChain)
-
-O overlap garante que frases cortadas entre dois chunks não percam contexto, melhorando a qualidade da recuperação no RAG. Na busca, são recuperados até `top_k × 5` candidatos com no máximo **2 chunks por arquivo**, garantindo diversidade de fontes na resposta.
-
-**Impacto no RAG:**
-Chunks menores aumentam a precisão da busca vetorial, pois cada trecho representa um conceito mais específico. O overlap de 100 caracteres evita perda de contexto em frases cortadas entre chunks. A limitação de 2 chunks por arquivo força diversidade de fontes na resposta, evitando que o sistema dependa excessivamente de um único documento.
+Os documentos usados pelo RAG estão na pasta `data/docs/`. Detalhes completos sobre origem, tipo de conteúdo, limitações, estratégia de chunking e impacto no RAG estão documentados em [`data/DATASET.md`](data/DATASET.md).
 
 ---
 

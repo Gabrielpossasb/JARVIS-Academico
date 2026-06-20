@@ -5,7 +5,14 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from flask import Flask, request, jsonify, render_template
-from main import decidir_ferramenta, executar_ferramenta, gerar_resposta_final, _resolver_datas_relativas
+from main import (
+    decidir_ferramenta,
+    executar_ferramenta,
+    gerar_resposta_final,
+    _resolver_datas_relativas,
+    _is_conceitual,
+    _MAX_HISTORICO,
+)
 from tool.rag import inicializar_rag
 from llm import perguntar
 
@@ -18,6 +25,9 @@ print("Inicializando RAG, aguarde...")
 inicializar_rag()
 print("JARVIS pronto!\n")
 
+# Histórico de conversa mantido no servidor (lista de {'role': ..., 'content': ...})
+historico = []
+
 
 @app.route('/')
 def index():
@@ -26,6 +36,8 @@ def index():
 
 @app.route('/chat', methods=['POST'])
 def chat():
+    global historico
+
     data = request.get_json()
     if not data:
         return jsonify({'error': 'Requisição inválida'}), 400
@@ -36,7 +48,14 @@ def chat():
 
     try:
         pergunta = _resolver_datas_relativas(pergunta)
-        decisao = decidir_ferramenta(pergunta)
+        decisao = decidir_ferramenta(pergunta, historico)
+
+        if not decisao.get('usar_ferramenta') and _is_conceitual(pergunta):
+            decisao = {
+                'usar_ferramenta': True,
+                'ferramenta': 'buscar_material',
+                'parametros': {'pergunta': pergunta}
+            }
 
         tool_used = None
         if decisao.get('usar_ferramenta'):
@@ -46,16 +65,29 @@ def chat():
             if tool_used in RETORNO_DIRETO:
                 resposta = contexto  # pula o gerar_resposta_final
             else:
-                resposta = gerar_resposta_final(pergunta, contexto)
+                resposta = gerar_resposta_final(pergunta, contexto, historico)
         else:
-            resposta = decisao.get('resposta_direta') or perguntar([
-                {'role': 'user', 'content': pergunta}
-            ])
+            msgs = [{'role': 'system', 'content': 'Você é o JARVIS, assistente acadêmico. Responda em português.'}]
+            msgs.extend(historico)
+            msgs.append({'role': 'user', 'content': pergunta})
+            resposta = decisao.get('resposta_direta') or perguntar(msgs)
+
+        historico.append({'role': 'user', 'content': pergunta})
+        historico.append({'role': 'assistant', 'content': resposta})
+        if len(historico) > _MAX_HISTORICO * 2:
+            historico = historico[-(_MAX_HISTORICO * 2):]
 
         return jsonify({'response': resposta, 'tool_used': tool_used})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/reset', methods=['POST'])
+def reset():
+    global historico
+    historico = []
+    return jsonify({'status': 'ok'})
 
 
 if __name__ == '__main__':
