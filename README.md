@@ -48,7 +48,7 @@ Assistente pessoal acadêmico desenvolvido para a disciplina de Inteligência Ar
 | `iniciar_active_recall` | Inicia uma sessão de active recall: gera uma pergunta sobre a matéria e aguarda a resposta do usuário |
 | `avaliar_resposta_recall` | Avalia a resposta do usuário na sessão de active recall ativa, com nota, acertos, lacunas e dica de reforço |
 
-A decisão de qual ferramenta usar é feita pelo próprio modelo Gemma 12B, não por lógica fixa.
+A decisão de qual ferramenta usar é feita pelo próprio modelo Qwen2.5-14B-Instruct-AWQ, não por lógica fixa.
 
 ---
 
@@ -58,7 +58,7 @@ A decisão de qual ferramenta usar é feita pelo próprio modelo Gemma 12B, não
 JARVIS/
 ├── app.py               # Servidor Flask — interface web
 ├── main.py              # Tool calling, decisão de ferramentas, histórico e geração de resposta
-├── llm.py               # Conexão com o Gemma 12B
+├── llm.py               # Conexão com o Qwen2.5-14B-Instruct-AWQ
 ├── tool/
 │   ├── rag.py           # RAG: carrega PDFs, gera embeddings, busca com diversidade (cache FAISS)
 │   ├── agenda.py        # Agenda acadêmica — leitura, escrita, adição e remoção de eventos
@@ -156,7 +156,7 @@ Resolução de datas relativas ("próxima segunda" → "2026-05-25")
    ↓
 Flask / loop de conversa  [histórico: últimos 10 turnos]
    ↓
-Gemma 12B (decisão de ferramenta)
+Qwen2.5-14B-Instruct-AWQ (decisão de ferramenta)
    ↓ tool calling
 ┌──────────────┬───────────────┬──────────────┬──────────────────┐
 │     RAG      │    Agenda     │   Tarefas    │   Planejamento /  │
@@ -165,7 +165,7 @@ Gemma 12B (decisão de ferramenta)
 │              │               │              │  active recall)   │
 └──────────────┴───────────────┴──────────────┴──────────────────┘
    ↓ contexto recuperado
-Gemma 12B (geração da resposta final)
+Qwen2.5-14B-Instruct-AWQ (geração da resposta final)
    ↓
 Usuário
 ```
@@ -177,7 +177,7 @@ Usuário
 | Ferramenta | Uso |
 |---|---|
 | Claude (Anthropic) | Geração e revisão de código, arquitetura do sistema, debugging |
-| Gemma 12B (Google / UFMS) | LLM principal do JARVIS — raciocínio, tool calling e geração de respostas |
+| Qwen2.5-14B-Instruct-AWQ (LIA/UFMS) | LLM principal do JARVIS — raciocínio, tool calling e geração de respostas |
 
 ---
 
