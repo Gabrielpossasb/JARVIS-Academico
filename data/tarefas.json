@@ -29,7 +29,7 @@
       "titulo": "estudar redes neurais",
       "materia": "IA",
       "prioridade": "alta",
-      "concluida": false,
+      "concluida": true,
       "data_criacao": "2026-05-20"
     },
     {
@@ -39,6 +39,14 @@
       "prioridade": "média",
       "concluida": false,
       "data_criacao": "2026-05-24"
+    },
+    {
+      "id": 6,
+      "titulo": "estudar redes neurais",
+      "materia": "inteligencia artificial",
+      "prioridade": "alta",
+      "concluida": false,
+      "data_criacao": "2026-06-21"
     }
   ]
 }
